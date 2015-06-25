@@ -1,0 +1,20 @@
+{
+    "color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
+    "draw_white_space": "all",
+    "folder_no_icon": true,
+    "font_size": 14,
+    "ignored_packages":
+    [
+        "SublimeCodeIntel",
+        "Vintage",
+        "Emmet"
+    ],
+    "sidebar_no_icon": false,
+    "sidebar_size_12": true,
+    "status_bar_brighter": true,
+    "tabs_padding_small": true,
+    "tabs_small": true,
+    "theme": "Afterglow-orange.sublime-theme",
+    "trim_trailing_white_space_on_save": true,
+    "word_wrap": true
+}

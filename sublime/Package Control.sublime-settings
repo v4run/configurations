@@ -1,0 +1,47 @@
+{
+    "in_process_packages":
+    [
+    ],
+    "installed_packages":
+    [
+        "AngularJS",
+        "Auto Semi-Colon",
+        "Brainfuck",
+        "Case Conversion",
+        "Colorsublime",
+        "Diffy",
+        "DocBlockr",
+        "EasyDiff",
+        "Emmet",
+        "Emmet Css Snippets",
+        "Emmet Style Reflector",
+        "GitGutter",
+        "Gitignore",
+        "GoSublime",
+        "Gulp",
+        "HTML-CSS-JS Prettify",
+        "HTML5",
+        "HTMLAttributes",
+        "HTMLBeautify",
+        "Javascript Beautify",
+        "JsFormat",
+        "JSON Reindent",
+        "Package Control",
+        "PHP Companion",
+        "Phpcs",
+        "Pretty JSON",
+        "Python 3",
+        "Sass",
+        "SassBeautify",
+        "SideBarEnhancements",
+        "SqlBeautifier",
+        "SublimeCodeIntel",
+        "SublimeREPL",
+        "Theme - Afterglow",
+        "Theme - Cobalt2",
+        "Theme - Soda",
+        "Theme - SoDaReloaded",
+        "Todo",
+        "TrailingSpaces"
+    ]
+}
