@@ -1,0 +1,22 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "go.buildOnSave": true,
+    "go.lintOnSave": true,
+    "go.vetOnSave": true,
+    "go.buildFlags": [],
+    "go.lintFlags": [],
+    "go.vetFlags": [],
+    "go.useCodeSnippetsOnFunctionSuggest": false,
+    "go.formatOnSave": true,
+    "go.formatTool": "goreturns",
+    "go.goroot": "/usr/local/go",
+    "go.gopath": "/home/varun/gopath",
+    "editor.fontSize": 17,
+    "editor.fontFamily": "Fira Code",
+    "editor.cursorStyle": "line",
+    "editor.wrappingColumn": 0,
+    "editor.renderWhitespace": true,
+    "window.reopenFolders": "all",
+    "files.trimTrailingWhitespace": true,
+    "editor.fontLigatures": true
+}

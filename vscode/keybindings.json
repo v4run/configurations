@@ -1,0 +1,104 @@
+// Place your key bindings in this file to overwrite the defaults
+[{
+    "key": "ctrl+k ctrl+g",
+    "command": "editor.action.goToDeclaration",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+shift+/",
+    "command": "editor.action.blockComment",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+shift+alt+down",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+pagedown",
+    "command": "workbench.files.action.openNextWorkingFile"
+}, {
+    "key": "ctrl+pageup",
+    "command": "workbench.files.action.openPreviousWorkingFile"
+}, {
+    "key": "alt+f3",
+    "command": "editor.action.selectHighlights"
+}, {
+    "key": "ctrl+r",
+    "command": "workbench.action.gotoSymbol"
+}, {
+    "key": "ctrl+numpad_add",
+    "command": "workbench.action.zoomIn"
+}, {
+    "key": "ctrl+numpad_subtract",
+    "command": "workbench.action.zoomOut"
+}, {
+    "key": "ctrl+k ctrl+j",
+    "command": "HookyQR.beautify"
+}, {
+    "key": "ctrl+k ctrl+d",
+    "command": "editor.action.moveSelectionToNextFindMatch",
+    "when": "editorFocus"
+}, {
+    "key": "ctrl+k ctrl+u",
+    "command": "editor.action.moveSelectionToPreviousFindMatch",
+    "when": "editorFocus"
+}, {
+    "key": "ctrl+k ctrl+e",
+    "command": "workbench.action.showErrorsWarnings"
+}, {
+    "key": "ctrl+k ctrl+l",
+    "command": "workbench.action.editor.changeLanguageMode"
+}, {
+    "key": "ctrl+w",
+    "command": "workbench.files.action.closeFile"
+}, {
+    "key": "ctrl+k ctrl+w",
+    "command": "workbench.action.closeActiveEditor"
+}, {
+    "key": "ctrl+shift+g",
+    "command": "editor.action.previewDeclaration",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+shift+d",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+. ctrl+d",
+    "command": "workbench.view.debug"
+}, {
+    "key": "ctrl+. ctrl+e",
+    "command": "workbench.view.explorer"
+}, {
+    "key": "ctrl+. ctrl+g",
+    "command": "workbench.view.git"
+}, {
+    "key": "ctrl+k ctrl+u",
+    "command": "extension.changeCase.upper",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+k ctrl+l",
+    "command": "extension.changeCase.lower",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+shift+down",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+shift+up",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+alt+down",
+    "command": "bookmarks.toggle",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+alt+right",
+    "command": "bookmarks.jumpToNext",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+alt+left",
+    "command": "bookmarks.jumpToPrevious",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+t",
+    "command": "extension.transpose",
+    "when": "editorTextFocus"
+}]
