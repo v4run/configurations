@@ -26,3 +26,6 @@ set number						" show line number
 set tabstop=4					" setting number of spaces in tab to 4
 set incsearch					" enable incremental search
 set hlsearch					" enable search highlighting
+
+nnoremap <CR> G					" mapping enter to goto line
+
