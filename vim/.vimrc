@@ -9,6 +9,13 @@ Plugin 'jacoborus/tender.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'vim-scripts/ReplaceWithRegister'
+Plugin 'christoomey/vim-system-copy'
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-entire'
 call vundle#end()				" vundle end
 filetype plugin indent on		" setting filetype, plugin, indent to on 
 
