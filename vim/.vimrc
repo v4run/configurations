@@ -1,8 +1,7 @@
 set nocompatible				" be iMproved, required
 
-" Specify directory for vim plugins
+" Plugin list {{{
 call plug#begin('~/.vim/plugged')
-
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -22,13 +21,15 @@ Plug 'airblade/vim-gitgutter'
 Plug 'flazz/vim-colorschemes'
 Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
-
 call plug#end()
+" }}}
 
 set termguicolors				" enable true color in vim
 set cursorline					" highlight current line
 set list lcs=tab:\|\ 			" highlight tabs in tab indented files
 set conceallevel=3
+set background=dark     " enable dark mode
+set wildmenu            " enable better(visual) autocomplete for commands
 
 " gitgutter configurations
 let g:gitgutter_override_sign_column_highlight = 0
