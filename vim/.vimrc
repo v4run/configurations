@@ -64,6 +64,8 @@ nnoremap <CR> G					" mapping enter to goto line
 noremap <C-b> :NERDTreeToggle<CR>
 inoremap <C-n> <C-x><C-o>
 nnoremap <C-p> :FZF<CR>
+nnoremap <C-j> <PageDown>
+nnoremap <C-k> <PageUp>
 
 " vim-go configurations
 let g:go_fmt_command = "goimports"
@@ -94,3 +96,4 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 let g:fzf_layout = { 'down': '~20%' }
+
