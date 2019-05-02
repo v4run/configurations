@@ -21,6 +21,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'flazz/vim-colorschemes'
 Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 " }}}
 
@@ -66,6 +67,7 @@ inoremap <C-n> <C-x><C-o>
 nnoremap <C-p> :FZF<CR>
 nnoremap <C-j> <PageDown>
 nnoremap <C-k> <PageUp>
+inoremap <C-o> :ins-special-special<CR>
 
 " vim-go configurations
 let g:go_fmt_command = "goimports"
@@ -97,3 +99,5 @@ let g:fzf_colors =
 
 let g:fzf_layout = { 'down': '~20%' }
 
+" rust related configurations
+let g:rustfmt_autosave = 1
