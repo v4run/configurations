@@ -22,6 +22,8 @@ Plug 'flazz/vim-colorschemes'
 Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
 Plug 'rust-lang/rust.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 " }}}
 
@@ -31,6 +33,7 @@ set list lcs=tab:\|\ 			" highlight tabs in tab indented files
 set conceallevel=3
 set background=dark     " enable dark mode
 set wildmenu            " enable better(visual) autocomplete for commands
+set showcmd             " show the current command
 
 " gitgutter configurations
 let g:gitgutter_override_sign_column_highlight = 0
@@ -63,11 +66,9 @@ autocmd CompleteDone * pclose " automatically close the preview window
 " custom mappings
 nnoremap <CR> G					" mapping enter to goto line
 noremap <C-b> :NERDTreeToggle<CR>
-inoremap <C-n> <C-x><C-o>
 nnoremap <C-p> :FZF<CR>
 nnoremap <C-j> <PageDown>
 nnoremap <C-k> <PageUp>
-inoremap <C-o> :ins-special-special<CR>
 
 " vim-go configurations
 let g:go_fmt_command = "goimports"
@@ -101,3 +102,4 @@ let g:fzf_layout = { 'down': '~20%' }
 
 " rust related configurations
 let g:rustfmt_autosave = 1
+
