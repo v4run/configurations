@@ -24,13 +24,14 @@ Plug 'w0rp/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'ayu-theme/ayu-vim'
+" Plug 'dylanaraps/wal.vim'
 call plug#end()
 " }}}
 
 set termguicolors				" enable true color in vim
 set cursorline					" highlight current line
 set list lcs=tab:\|\ 			" highlight tabs in tab indented files
-set conceallevel=3
 set background=dark     " enable dark mode
 set wildmenu            " enable better(visual) autocomplete for commands
 set showcmd             " show the current command
@@ -43,7 +44,10 @@ let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_sign_column = 'bg1'
 let g:gruvbox_number_column = 'bg0'
 let g:gruvbox_vert_split = 'bg1'
-colorscheme gruvbox
+let ayucolor="dark"
+colorscheme ayu
+" colorscheme gruvbox
+" colorscheme wal
 
 " airline configurations
 let g:airline_powerline_fonts = 1
@@ -103,3 +107,4 @@ let g:fzf_layout = { 'down': '~20%' }
 " rust related configurations
 let g:rustfmt_autosave = 1
 
+set conceallevel=0
