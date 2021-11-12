@@ -13,7 +13,6 @@ set relativenumber " enable relative numbering
 set wildmenu
 set wildmode=longest:full,full " on first tab complete till longest common pattern, on next show a full menu
 set cursorline " highlight the current line
-" set cursorcolumn " highlight the current col
 set ttyfast " indicates a fast terminal connection [removed in neovim]
 set scrolloff=1 " keep N lines above or below when scrolling
 set showcmd " show the partial command in last line. eg. for diw show di till w is pressed
@@ -24,7 +23,11 @@ set noerrorbells " disable bell on error
 set termguicolors " enable 24-bit color
 set noshowmode " don't show current mode [will be displayed in the status line]
 set nowrap " don't wrap the line
+set completeopt-=preview " prevent preview window from opening in completion
+set list listchars=tab:\|\  " adding set indent guide lines
+" set cursorcolumn " highlight the current col
 " set colorcolumn=120 " add a vertical line at column
+set cmdheight=1
 
 filetype plugin on " enable loading plugin files for the file type
 filetype indent on " enable loading indent files for the file type
@@ -40,6 +43,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'joshdick/onedark.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'ayu-theme/ayu-vim'
+Plug 'sainnhe/sonokai'
 call plug#end()
 
 " Mappings
@@ -47,7 +56,7 @@ nnoremap <silent> <Leader><Space> :let @/ = ""<CR> " clear the last used search 
 
 " Status line settings
 let g:lightline = {
-			\ 'colorscheme': 'one',
+			\ 'colorscheme': 'sonokai',
 			\ 'active': {
 				\ 'left': [ [ 'mode', 'paste'],
 				\			[ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -71,10 +80,24 @@ endfunction
 
 " Colorscheme
 set background=dark
-autocmd vimenter * ++nested colorscheme onedark
+" autocmd vimenter * ++nested colorscheme onedark
+" let ayucolor='dark'
+" autocmd vimenter * ++nested colorscheme ayu
+let g:sonokai_style = 'atlantis'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 1
+autocmd vimenter * ++nested colorscheme sonokai
+" transparent background
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+" transparent not text background
+autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " Go settings
 let g:go_metalinter_autosave = 0
+" let g:go_debug = ['shell-commands']
+let g:go_jump_to_error = 1
+let g:go_doc_popup_window = 0
+let g:go_def_mapping_enabled = 1
 let g:go_auto_type_info = 0
 let g:go_highlight_types = 1
 let g:go_highlight_functions = 1
@@ -91,6 +114,7 @@ let g:go_def_mode = 'gopls'
 let g:go_info_mode = 'gopls'
 let g:go_rename_command = 'gopls'
 let g:go_metalinter_command = 'golangci-lint'
+let g:go_gopls_complete_unimported = 1
 
 
 " Mappings
@@ -124,27 +148,32 @@ vnoremap <Leader>d "_d
 vnoremap <Leader>p "_dP
 
 " Fuzzy search files in current directory
-nmap <C-p> :Files<CR>
+" nmap <C-p> :Files<CR>
+nmap <C-p> :Telescope find_files<CR>
+nmap <Leader>fe :Telescope file_browser<CR>
 
 " Execute :Git command
 nmap <Leader>gs :G<CR>
 
+autocmd User TelescopePreviewerLoaded setlocal wrap
 
 " Go custom mappings
 function! GoCustomMappings()
 	nmap <buffer> gi :GoImplements<CR>
 	nmap <buffer> gc :GoCallers<CR>
+	nmap <buffer> gr :GoReferrers<CR>
 	nmap <buffer> <Leader>x <Plug>(go-run)
 	nmap <buffer> <Leader>b <Plug>(go-build)
 	nmap <buffer> <Leader>i <Plug>(go-info)
 	nmap <buffer> <Leader>gd <Plug>(go-def-tab)
+	nmap <buffer> <Leader>e :GoIfErr<CR>
 	nmap <buffer> <Leader>p :GoDecls<CR>
-	nmap <buffer> <Leader>ta :GoAddTags
-	nmap <buffer> <Leader>td :GoRemoveTags
-	vmap <buffer> <Leader>ta :GoAddTags
-	vmap <buffer> <Leader>td :GoRemoveTags
-	nmap <buffer> <Leader>r :GoRename<Space>
+	nmap <buffer> <Leader>ta :GoAddTags<Space>
+	nmap <buffer> <Leader>td :GoRemoveTags<Space>
+	nmap <buffer> <Leader>r :GoRename<CR>
 	nmap <buffer> <Leader>l :GoMetaLinter<CR>
+	nmap <buffer> <Leader>9 :GoDecls<CR>
+	nmap <buffer> <Leader>0 :GoDeclsDir<CR>
 	inoremap <buffer> <C-p> <C-x><C-o>
 	inoremap <buffer> <C-n> <C-x><C-o>
 endfunction
@@ -175,7 +204,7 @@ function! s:ToggleGitBlame()
 endfunction
 
 " Mapping to toggle git blame window
-nmap <silent> <Leader>gb :call <SID>ToggleGitBlame()<CR>
+nmap <silent> gb :call <SID>ToggleGitBlame()<CR>
 
 " Custom command to edit vim config file
 :command RC tabnew ~/.config/nvim/init.vim
@@ -183,4 +212,31 @@ nmap <silent> <Leader>gb :call <SID>ToggleGitBlame()<CR>
 " Custom command to edit .zshrc
 :command ZRC tabnew ~/.zshrc
 
+lua << EOF
+local actions = require('telescope.actions')
+
+require('telescope').setup{
+	defaults = {
+		color_devicons = true,
+		mappings = {
+			i = {
+				['<C-j>'] = actions.move_selection_next,
+				['<C-k>'] = actions.move_selection_previous,
+			}
+		}
+	},
+	pickers = {
+		file_browser = {
+			hidden = true,
+		}
+	},
+	extensions = {
+		fzf = {
+			fuzzy = true,
+		}
+	},
+}
+
+require('telescope').load_extension('fzf')
+EOF
 
