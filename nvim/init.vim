@@ -28,6 +28,7 @@ set list listchars=tab:\|\  " adding set indent guide lines
 " set cursorcolumn " highlight the current col
 " set colorcolumn=120 " add a vertical line at column
 set cmdheight=1
+set updatetime=100
 
 filetype plugin on " enable loading plugin files for the file type
 filetype indent on " enable loading indent files for the file type
@@ -49,6 +50,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ayu-theme/ayu-vim'
 Plug 'sainnhe/sonokai'
+Plug 'mhinz/vim-signify'
 call plug#end()
 
 " Mappings
@@ -94,7 +96,7 @@ autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " Go settings
 let g:go_metalinter_autosave = 0
-" let g:go_debug = ['shell-commands']
+" let g:go_debug = ['shell-commands', 'lsp']
 let g:go_jump_to_error = 1
 let g:go_doc_popup_window = 0
 let g:go_def_mapping_enabled = 1
@@ -105,10 +107,17 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_function_parameters = 0
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_string_spellcheck = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_variable_declarations = 0
+let g:go_highlight_variable_assignments = 0
 let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = 'goimports'
+let g:go_fmt_command = 'gopls'
 let g:go_list_type = 'quickfix'
 let g:go_def_mode = 'gopls'
 let g:go_info_mode = 'gopls'
@@ -151,6 +160,7 @@ vnoremap <Leader>p "_dP
 " nmap <C-p> :Files<CR>
 nmap <C-p> :Telescope find_files<CR>
 nmap <Leader>fe :Telescope file_browser<CR>
+nmap <Leader>/ :Telescope live_grep<CR>
 
 " Execute :Git command
 nmap <Leader>gs :G<CR>
